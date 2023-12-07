@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ldapaccountmanager/lam
+  repository: ghcr.io/ldapaccountmanager/lam:8.6.rc1
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

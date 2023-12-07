@@ -33,7 +33,7 @@ spec:
           {{- end }}
       initContainers:
         - name: copy-default-configs
-          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /bin/sh
