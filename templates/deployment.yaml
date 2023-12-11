@@ -75,11 +75,11 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /lam
+              path: /lam/
               port: http
           readinessProbe:
             httpGet:
-              path: /lam
+              path: /lam/
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
