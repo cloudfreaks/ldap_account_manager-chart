@@ -16,7 +16,7 @@ spec:
     spec:
       {{- if .Values.usePrivateRegistry }}
       imagePullSecrets:
-        - name: registry_creds
+        - name: {{ include "ldap-account-manager.fullname" . }}-creds
       {{- end }}
       serviceAccountName: {{ include "ldap-account-manager.serviceAccountName" . }}
       securityContext:
