@@ -11,15 +11,13 @@ spec:
       {{- include "ldap-account-manager.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      annotations:
-        lam.g4b1bb097.dev/env-hash: {{ .Values.extraEnv | toJson | sha256sum | trunc 32 }}
       labels:
         {{- include "ldap-account-manager.selectorLabels" . | nindent 8 }}
     spec:
-    {{- with .Values.imagePullSecrets }}
+      {{- if .Values.imageCredentials.usePrivateRegistry }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+        - name: registry_creds
+      {{- end }}
       serviceAccountName: {{ include "ldap-account-manager.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}

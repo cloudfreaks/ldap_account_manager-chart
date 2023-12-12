@@ -8,7 +8,13 @@ image:
   repository: ghcr.io/ldapaccountmanager/lam:8.6.rc1
   pullPolicy: IfNotPresent
 
-imagePullSecrets: []
+# This is intended to be used with LAM licences images from azure, but it works for any private registry
+imageCredentials:
+  usePrivateRegistry: false
+#  registry: quay.io
+#  username: login
+#  password: secretPassword
+
 nameOverride: ""
 fullnameOverride: ""
 
