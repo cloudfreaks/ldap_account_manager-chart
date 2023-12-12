@@ -67,6 +67,6 @@ Setup the login secret for private registry
 */}}
 {{- define "imagePullSecret" }}
 {{- with .Values.imageCredentials }}
-{{- printf "{\"auths\":{\"%s\":{\"username\":\"%s\",\"password\":\"%s\"}}}" .registry .username .password }}
+{{- printf "{\"auths\":{\"%s\":{\"username\":\"%s\",\"password\":\"%s\"}}}" .registry .username .password | b64enc }}
 {{- end }}
 {{- end }}
