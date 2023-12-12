@@ -14,7 +14,7 @@ spec:
       labels:
         {{- include "ldap-account-manager.selectorLabels" . | nindent 8 }}
     spec:
-      {{- if .Values.imageCredentials.usePrivateRegistry }}
+      {{- if .Values.usePrivateRegistry }}
       imagePullSecrets:
         - name: registry_creds
       {{- end }}
